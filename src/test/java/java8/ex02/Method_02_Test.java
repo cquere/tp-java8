@@ -16,9 +16,6 @@ public class Method_02_Test {
 	interface IDao {
 		List<Person> findAll();
 
-		// TODO créer une méthode String format()
-		// TODO la méthode retourne une chaîne de la forme [<nb_personnes>
-		// persons]
 		// TODO exemple de résultat : "[14 persons]", "[30 persons]"
 		default String format() {
 	    	   int sum = this.findAll().size();
@@ -60,6 +57,6 @@ public class Method_02_Test {
 		// TODO invoquer la méthode format() pour que le test soit passant
 		String result = daoA.format();
 
-		"DaoA[20 persons]".equals(result);
+		assert "DaoA[20 persons]".equals(result);
 	}
 }
