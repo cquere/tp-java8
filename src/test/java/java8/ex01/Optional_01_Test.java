@@ -30,26 +30,11 @@ public class Optional_01_Test {
 			}
 		}
 
-		if (result == null) {
-			return Optional.empty();
-		}
-		return Optional.of(result);
+		return Optional.ofNullable(result);
 	}
-	
+
 	<T> T find(List<T> list, Predicate<T> predicate, T defaultValue) {
-		T result = null;
-
-		for (T p : list) {
-			if (predicate.test(p)) {
-				result = p;
-				break;
-			}
-		}
-
-		if (result == null) {
-			return defaultValue;
-		}
-		return result;
+		return find(list, predicate).orElse(defaultValue);
 	}
 	// end::findMethod[]
 
@@ -96,7 +81,7 @@ public class Optional_01_Test {
 
 		// TODO Utiliser la méthode orElseThrow pour déclencher l'exception
 		// NotFountException si non trouvé
-		result.orElseThrow(()-> new NotFountException());
+		result.orElseThrow(() -> new NotFountException());
 	}
 
 	@Test
